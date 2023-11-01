@@ -1,14 +1,31 @@
+#[cfg(feature = "mimalloc")]
+use mimalloc::MiMalloc;
 use pyo3::prelude::*;
 
-/// Formats the sum of two numbers as string.
-#[pyfunction]
-fn sum_as_string(a: usize, b: usize) -> PyResult<String> {
-    Ok((a + b).to_string())
-}
+#[allow(clippy::borrow_deref_ref)]
+mod context;
 
-/// A Python module implemented in Rust.
+pub mod utils;
+mod dataframe;
+mod errors;
+
+
+// Used to define Tokio Runtime as a Python module attribute
+#[pyclass]
+pub(crate) struct TokioRuntime(tokio::runtime::Runtime);
+
+
+/// Low-level LetSQL internal package.
 #[pymodule]
-fn koenigsberg(_py: Python, m: &PyModule) -> PyResult<()> {
-    m.add_function(wrap_pyfunction!(sum_as_string, m)?)?;
+fn _internal(_py: Python, m: &PyModule) -> PyResult<()> {
+
+    // Register the Tokio Runtime as a module attribute so we can reuse it
+    m.add(
+        "runtime",
+        TokioRuntime(tokio::runtime::Runtime::new().unwrap()),
+    )?;
+
+    m.add_class::<context::PySessionConfig>()?;
+    m.add_class::<context::PySessionContext>()?;
     Ok(())
 }

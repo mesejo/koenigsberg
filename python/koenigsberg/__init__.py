@@ -1,6 +1,8 @@
-from .koenigsberg import *
+from .main import Backend
+
+ba = Backend()
 
 
-__doc__ = koenigsberg.__doc__
-if hasattr(koenigsberg, "__all__"):
-    __all__ = koenigsberg.__all__
+def con():
+    ba.do_connect()
+    return ba
