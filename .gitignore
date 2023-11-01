@@ -177,3 +177,7 @@ pip-selfcheck.json
 # Others
 /target
 .DS_Store
+
+# Ibis testing data
+ci/ibis-testing-data*
+ci/ibis_testing.db
