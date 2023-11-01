@@ -1,2 +1,2 @@
 # koenigsberg
-A library for graph algorithms 
+A library for graph algorithms

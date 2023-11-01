@@ -57,4 +57,3 @@ impl From<DataFusionError> for PyErr {
 }
 
 impl Error for DataFusionError {}
-

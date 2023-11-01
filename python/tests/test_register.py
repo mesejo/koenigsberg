@@ -45,10 +45,7 @@ def data_dir() -> Path:
         param("functional_alltypes.parquet", "funk_all", "funk_all", id="basename"),
     ],
 )
-def test_register_parquet(
-    tmp_path, data_dir, fname, in_table_name, out_table_name
-):
-    pq = pytest.importorskip("pyarrow.parquet")
+def test_register_parquet(tmp_path, data_dir, fname, in_table_name, out_table_name):
     fname = Path(fname)
 
     con = kg.con()

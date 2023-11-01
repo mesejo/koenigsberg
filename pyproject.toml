@@ -21,3 +21,8 @@ dependencies = [
 module-name = "koenigsberg._internal"
 python-source = "python"
 features = ["pyo3/extension-module"]
+
+[tool.codespell]
+skip = "*.lock,.direnv,.git,docs/_freeze/**/html.json"
+ignore-regex = '\b(DOUB|i[if]f|I[IF]F|lamduh|AFE|crate|ba)\b'
+builtin = "clear,rare,names"

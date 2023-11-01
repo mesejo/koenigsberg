@@ -27,7 +27,7 @@ class Backend:
     def do_connect(
         self,
     ) -> None:
-       self.con = SessionContext()
+        self.con = SessionContext()
 
     def list_tables(
         self,
@@ -75,6 +75,5 @@ class Backend:
         if first.startswith(("parquet://", "parq://")) or first.endswith(
             ("parq", "parquet")
         ):
-            self.con.register_parquet(table_name, first,
-                                      file_extension=".parquet")
+            self.con.register_parquet(table_name, first, file_extension=".parquet")
             return self.table(table_name)

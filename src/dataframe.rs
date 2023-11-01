@@ -23,7 +23,6 @@ impl PyDataFrame {
 
 #[pymethods]
 impl PyDataFrame {
-
     // Executes this DataFrame to get the total number of rows.
     fn count(&self, py: Python) -> PyResult<usize> {
         Ok(wait_for_future(py, self.df.as_ref().clone().count())?)

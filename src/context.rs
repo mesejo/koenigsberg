@@ -5,9 +5,7 @@ use datafusion::arrow::datatypes::{DataType, Schema};
 use datafusion::arrow::pyarrow::PyArrowType;
 use datafusion::execution::context::{SessionConfig, SessionContext, SessionState};
 use datafusion::execution::runtime_env::{RuntimeConfig, RuntimeEnv};
-use datafusion::prelude::{
-    DataFrame, ParquetReadOptions,
-};
+use datafusion::prelude::{DataFrame, ParquetReadOptions};
 use datafusion_common::ScalarValue;
 use pyo3::prelude::*;
 
@@ -145,7 +143,6 @@ impl PySessionContext {
             config_entries.join("\n\t")
         ))
     }
-
 }
 
 impl PySessionContext {
