@@ -7,18 +7,6 @@ name: ci-publish
 
 on:
   workflow_dispatch:
-    # Skip the backend suite if all changes are docs
-    paths-ignore:
-      - "docs/**"
-      - "**/*.md"
-      - "**/*.qmd"
-      - "*.md"
-      - "codecov.yml"
-      - ".envrc"
-    branches:
-      - main
-    tags:
-      - '*'
 
 # we do not want more than one release workflow executing at the same time, ever
 concurrency:
