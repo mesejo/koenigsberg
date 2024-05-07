@@ -51,7 +51,7 @@ jobs:
         working-directory: ${{ github.workspace }}
 
       - name: poetry pytest
-        run: poetry run pytest --cov
+        run: poetry run pytest --cov --cov-report=xml
         working-directory: ${{ github.workspace }}
 
       - name: Upload coverage reports to Codecov
