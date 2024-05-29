@@ -38,7 +38,7 @@ download-data owner="ibis-project" repo="testing-data" rev="master":
 
 # generate API documentation
 docs-apigen *args:
-    cd docs && quartodoc interlinks
+    cd docs && poetry run quartodoc interlinks
     poetry run quartodoc build {{ args }} --config docs/_quarto.yml
 
 # build documentation
