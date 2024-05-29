@@ -4,4 +4,4 @@
 ![Codecov](https://img.shields.io/codecov/c/github/mesejo/koenigsberg)
 
 
-A library for graph algorithms
+A really cool library for graph algorithms
