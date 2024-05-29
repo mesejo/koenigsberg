@@ -49,9 +49,13 @@ jobs:
         run: poetry install --with="dev,test,docs"
         working-directory: ${{ github.workspace }}
 
-      - name: maturin develop
-        run: poetry run maturin develop
-        working-directory: ${{ github.workspace }}
+      - uses: quarto-dev/quarto-actions/setup@v2
+        with:
+          version: 1.4.515
+
+#      - name: maturin develop
+#        run: poetry run maturin develop
+#        working-directory: ${{ github.workspace }}
 
       - name: build docs
         run: just docs-build-all
