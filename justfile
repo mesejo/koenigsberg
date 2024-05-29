@@ -35,3 +35,17 @@ download-data owner="ibis-project" repo="testing-data" rev="master":
     if [ "{{ rev }}" != "master" ]; then
         git -C "${outdir}" checkout "{{ rev }}"
     fi
+
+# generate API documentation
+docs-apigen *args:
+    cd docs && quartodoc interlinks
+    quartodoc build {{ args }} --config docs/_quarto.yml
+
+# build documentation
+docs-render:
+    quarto render docs
+
+# run the entire docs build pipeline
+docs-build-all:
+    just docs-apigen --verbose
+    just docs-render
