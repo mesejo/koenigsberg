@@ -4,4 +4,6 @@ title: "Docs"
 
 This is a Quarto website.
 
+This page was updated.
+
 To learn more about Quarto websites visit <https://quarto.org/docs/websites>.
