@@ -1,0 +1,4 @@
+- source: project
+  netlify:
+    - id: 0dcc1e47-4e15-46b8-ba31-ee3543a06d11
+      url: 'https://koenigsberg-docs.netlify.app'
