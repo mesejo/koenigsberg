@@ -3098,7 +3098,12 @@ files = [
 docs = ["furo", "jaraco.packaging (>=9.3)", "jaraco.tidelift (>=1.4)", "rst.linker (>=1.9)", "sphinx (>=3.5)", "sphinx-lint"]
 testing = ["big-O", "jaraco.functools", "jaraco.itertools", "more-itertools", "pytest (>=6)", "pytest-checkdocs (>=2.4)", "pytest-cov", "pytest-enabler (>=2.2)", "pytest-ignore-flaky", "pytest-mypy", "pytest-ruff (>=0.2.1)"]
 
+[extras]
+datafusion = ["datafusion"]
+duckdb = ["duckdb"]
+snowflake = ["snowflake-connector-python"]
+
 [metadata]
 lock-version = "2.0"
 python-versions = "^3.10"
-content-hash = "170e168a441dad87237ae8e63299b7192e6f732c6245860834a8d5e2d9423520"
+content-hash = "2991c53fc0382a26cb86f5081176b043046231a3bb9b167c60548d044513ff54"

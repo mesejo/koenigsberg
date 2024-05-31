@@ -28,6 +28,9 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
+      - name: download test data
+        run: just download-data
+
       - uses: actions/setup-python@v4
         with:
           python-version: ${{ matrix.python-version }}
@@ -42,6 +45,13 @@ jobs:
       - uses: quarto-dev/quarto-actions/setup@v2
         with:
           version: 1.4.515
+
+      - name: maturin develop
+        run: poetry run maturin develop
+        working-directory: ${{ github.workspace }}
+
+      - name: start services
+        run: docker compose up --build --wait
 
       - name: build api docs
         run: just docs-apigen --verbose

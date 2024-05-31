@@ -4,7 +4,7 @@ title: "About"
 
 ## What is LETSQL?
 
-LETSQL is a query engine with a pythonic dataframe interface, built on top of DataFusion that can be used to write multi-engine workflows.
+LETSQL is a really cool query engine with a pythonic dataframe interface, built on top of DataFusion that can be used to write multi-engine workflows.
 
 ## What is not LETSQL?
 Is not a dataframe library, while it provides a familiar pythonic dataframe interface, LETSQL is equipped with a query optimizer and can
@@ -31,19 +31,14 @@ For the following example we are going to use an Ibis table from a Postgres conn
 pandas DataFrame.
 
 ```{python}
-#| eval: false
 #| code-summary: multi-engine example
 import pathlib
 
 import ibis
 import pandas as pd
 
-import letsql as ls
 
 ibis.options.interactive = True
-
-# create the letsql connection
-con = ls.connect()
 
 
 # create the Ibis Postgres connection
@@ -57,16 +52,7 @@ pg = ibis.postgres.connect(
 
 
 # register Postgres table
-batting = con.register(pg.table("batting"), table_name="batting")
-
-# register csv file
-df = pd.read_csv("https://raw.githubusercontent.com/ibis-project/testing-data/master/csv/awards_players.csv")
-awards_players = con.register(df, table_name="awards_players")
-
-left = batting[batting.yearID == 2015]
-right = awards_players[awards_players.lgID == "NL"].drop("yearID", "lgID").execute()
-
-left.join(right, ["playerID"], how="semi")
+pg.table("batting")
 ```
 
 
