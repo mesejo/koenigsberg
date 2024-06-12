@@ -30,6 +30,8 @@ expression and executing each part in-situ on the corresponding backend.
 For the following example we are going to use an Ibis table from a Postgres connection and perform a join with an in-memory
 pandas DataFrame.
 
+It will nice to have a good introduction on how to deploy the docs on Netlify
+
 ```{python}
 #| code-summary: multi-engine example
 import pathlib
