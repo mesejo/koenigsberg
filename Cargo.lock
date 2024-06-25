@@ -1195,7 +1195,7 @@ dependencies = [
 
 [[package]]
 name = "koenigsberg"
-version = "0.1.9"
+version = "0.1.10"
 dependencies = [
  "arrow",
  "async-trait",
