@@ -8,5 +8,6 @@
     "pep621",
     "poetry"
   ],
-  "automerge": false
+  "automerge": false,
+  "printConfig": true
 }
