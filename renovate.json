@@ -6,8 +6,7 @@
   "rangeStrategy": "replace",
   "enabledManagers": [
     "pep621",
-    "poetry",
-    "cargo"
+    "poetry"
   ],
   "automerge": false
 }
