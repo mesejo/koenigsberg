@@ -2,7 +2,7 @@
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
   "rangeStrategy": "widen",
   "extends": [
-    "config:recommended", ":preserveSemverRanges"
+    "config:recommended", ":enablePreCommit", ":disableDependencyDashboard"
   ],
   "enabledManagers": [
     "pep621",
