@@ -3,7 +3,7 @@
   "extends": [
     "config:recommended"
   ],
-  "rangeStrategy": "widen",
+  "rangeStrategy": "replace",
   "enabledManagers": [
     "pep621",
     "poetry",
