@@ -64,7 +64,7 @@ pytest-mock = "^3.14.0"
 black = "23.10.1"
 blackdoc = "0.3.8"
 codespell = {version = "2.2.6", extras = ["hard-encoding-detection", "toml"]}
-coverage = {version = "7.3.2", extras = ["toml"]}
+coverage = {version = "7.6.1", extras = ["toml"]}
 git-cliff = "^2.2.1"
 ipython = "^8.19.0"
 pre-commit = "3.5.0"
