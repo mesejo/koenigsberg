@@ -63,7 +63,7 @@ pytest-mock = "^3.14.0"
 [tool.poetry.group.dev.dependencies]
 black = "24.8.0"
 blackdoc = "0.3.8"
-codespell = {version = "2.2.6", extras = ["hard-encoding-detection", "toml"]}
+codespell = {version = "2.3.0", extras = ["hard-encoding-detection", "toml"]}
 coverage = {version = "7.3.2", extras = ["toml"]}
 git-cliff = "^2.2.1"
 ipython = "^8.19.0"
