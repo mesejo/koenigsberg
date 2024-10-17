@@ -49,7 +49,7 @@ jobs:
         uses: snok/install-poetry@v1
 
       - name: Poetry install
-        run: poetry install --extras="examples"
+        run: poetry install
         working-directory: ${{ github.workspace }}
 
       - name: maturin develop
