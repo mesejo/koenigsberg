@@ -38,16 +38,12 @@ jobs:
       - name: Create virtual environment
         run: python -m venv .venv
 
-      - name: Activate virtual environment
-        run: source .venv/bin/activate
-
       - name: Install pytest
-        run: python -m pip install pytest maturin
+        run: .venv/bin/python -m pip install pytest maturin
 
       - name: Check install
-        run: |
-          python -m maturin develop 
+        run: .venv/bin/python -m maturin develop
 
       - name: poetry pytest
-        run: python -m pytest --import-mode=importlib python/koenigsberg/tests/test_examples.py -v
+        run: .venv/bin/python -m pytest --import-mode=importlib python/koenigsberg/tests/test_examples.py -v
         working-directory: ${{ github.workspace }}
