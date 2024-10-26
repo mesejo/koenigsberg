@@ -59,6 +59,7 @@ datafusion = {version = "^34.0.0 || ^41.0.0", optional = true}
 palmerpenguins = "^0.1.4"
 structlog = "^24.2.0"
 pytest-mock = "^3.14.0"
+narwhals = "1.10.0"
 
 [tool.poetry.group.dev.dependencies]
 black = "24.8.0"

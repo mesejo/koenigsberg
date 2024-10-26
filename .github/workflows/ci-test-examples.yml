@@ -45,21 +45,9 @@ jobs:
       - name: Rust latest
         run: rustup update
 
-      - name: Install Poetry
-        uses: snok/install-poetry@v1
-
-      - name: Poetry install
-        run: poetry install
-        working-directory: ${{ github.workspace }}
-
-      - name: maturin develop
-        run: poetry run maturin develop
-        working-directory: ${{ github.workspace }}
-
-      - name: Create pytest.ini
-        run: |
-          echo "[pytest]" > pytest.ini
-          echo "python_functions = ci_*" >> pytest.ini
+      - uses: PyO3/maturin-action@v1
+        with:
+          command: develop
 
       - name: poetry pytest
         run: poetry run pytest --import-mode=importlib python/koenigsberg/tests/test_examples.py -v
