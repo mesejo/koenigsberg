@@ -14,7 +14,7 @@ classifiers = [
 description = "A really cool placeholder project for testing ideas"
 authors = [{ name = "Daniel Mesejo", email = "mesejoleon@gmail.com" }]
 dependencies = [
-    "dask==2024.9.1; python_version >= '3.10' and python_version < '4.0'",
+    "dask==2024.10.0; python_version >= '3.10' and python_version < '4.0'",
     "attrs==24.2.0; python_version >= '3.10' and python_version < '4.0'",
     "connectorx>=0.3.2,<1 ; python_version >= '3.10' and python_version < '4.0'",
     "psycopg2-binary==2.9.9 ; python_version >= '3.10' and python_version < '4.0'",
