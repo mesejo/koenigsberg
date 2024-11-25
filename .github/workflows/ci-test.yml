@@ -47,7 +47,9 @@ jobs:
         run: uv sync --all-extras --all-groups
 
       - name: maturin develop
-        run: uv run maturin develop
+        run: |
+          uv pip install pip
+          uv run maturin develop
         working-directory: ${{ github.workspace }}
 
       - name: poetry pytest
