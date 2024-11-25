@@ -443,7 +443,7 @@ wheels = [
 
 [[package]]
 name = "dask"
-version = "2024.9.1"
+version = "2024.10.0"
 source = { registry = "https://pypi.org/simple" }
 dependencies = [
     { name = "click" },
@@ -455,9 +455,9 @@ dependencies = [
     { name = "pyyaml" },
     { name = "toolz" },
 ]
-sdist = { url = "https://files.pythonhosted.org/packages/3a/e1/d5c46352ac59016fd3b4b83edacbec0f8280994da5525d10bd90ba5a7a06/dask-2024.9.1.tar.gz", hash = "sha256:06eccc6a68d2882bcd9de24548fa96e8d0da7fbfff0baed3f3c2a526b73dfbb4", size = 10147855 }
+sdist = { url = "https://files.pythonhosted.org/packages/eb/38/10d4e3c5625b118c5a3b3066bb8bd473cc211434a4486c0ea5d93bc575be/dask-2024.10.0.tar.gz", hash = "sha256:dfd3efec5d8d8340fb647d0347637133030cad261b714623cc27de286e9db037", size = 10154629 }
 wheels = [
-    { url = "https://files.pythonhosted.org/packages/73/ea/3df533d551bc673f8a295450a8e28707e980fd3b55117edb1d1aa4cc374d/dask-2024.9.1-py3-none-any.whl", hash = "sha256:3757bb6c976f0436fef6bd6ad32f8983ee5ce7d8a738a1f643e208cd390ec794", size = 1257378 },
+    { url = "https://files.pythonhosted.org/packages/85/ec/0fa1997dd7070a336063663a1305e6967b7c906bd7907f2435c5ad049b0e/dask-2024.10.0-py3-none-any.whl", hash = "sha256:1ddc27c7967e134b4f8296a488521485a5ac4927cc63e2abfa0b24227b93217f", size = 1259489 },
 ]
 
 [[package]]
@@ -915,7 +915,7 @@ test = [
 requires-dist = [
     { name = "attrs", marker = "python_full_version >= '3.10' and python_full_version < '4.0'", specifier = "==24.2.0" },
     { name = "connectorx", marker = "python_full_version >= '3.10' and python_full_version < '4.0'", specifier = ">=0.3.2,<1" },
-    { name = "dask", marker = "python_full_version >= '3.10' and python_full_version < '4.0'", specifier = "==2024.9.1" },
+    { name = "dask", marker = "python_full_version >= '3.10' and python_full_version < '4.0'", specifier = "==2024.10.0" },
     { name = "datafusion", marker = "extra == 'datafusion'", specifier = ">=34.0.0,<42.0.0" },
     { name = "duckdb", marker = "extra == 'duckdb'", specifier = ">=0.10.3,<2.0.0" },
     { name = "narwhals", marker = "python_full_version >= '3.10' and python_full_version < '4.0'", specifier = "==1.10.0" },
