@@ -45,6 +45,7 @@ dev = [
     "pytest-cov==5.0.0",
     "ruff==0.6.9",
     "maturin>=1.7.4",
+    "pip>=24.3.1",
 ]
 test = [
     "scikit-learn<2.0.0,>=1.4.0",

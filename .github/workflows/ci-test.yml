@@ -48,7 +48,6 @@ jobs:
 
       - name: maturin develop
         run: |
-          uv pip install pip
           uv run maturin develop
         working-directory: ${{ github.workspace }}
 
