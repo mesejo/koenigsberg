@@ -5,7 +5,7 @@ build-backend = "maturin"
 [project]
 name = "koenigsberg"
 dynamic = ["version"]
-requires-python = ">=3.7"
+requires-python = ">=3.10"
 classifiers = [
     "Programming Language :: Rust",
     "Programming Language :: Python :: Implementation :: CPython",
@@ -27,67 +27,41 @@ dependencies = [
     "narwhals==1.10.0 ; python_version >= '3.10' and python_version < '4.0'",
 ]
 
+[project.optional-dependencies]
+duckdb = ["duckdb<2.0.0,>=0.10.3"]
+snowflake = ["snowflake-connector-python<4.0.0,>=3.10.1"]
+datafusion = ["datafusion<42.0.0,>=34.0.0"]
+
+[dependency-groups]
+dev = [
+    "black==24.8.0",
+    "blackdoc==0.3.9",
+    "codespell[hard-encoding-detection,toml]==2.3.0",
+    "coverage[toml]==7.6.1",
+    "git-cliff<3.0.0,>=2.2.1",
+    "ipython<9.0.0,>=8.19.0",
+    "pre-commit==3.8.0",
+    "pytest==8.3.3",
+    "pytest-cov==5.0.0",
+    "ruff==0.6.9",
+    "maturin>=1.7.4",
+]
+test = [
+    "scikit-learn<2.0.0,>=1.4.0",
+    "xgboost>=1.6.1",
+]
+docs = [
+    "quartodoc<1.0.0,>=0.7.2",
+    "nbformat<6.0.0,>=5.10.4",
+    "nbclient<1.0.0,>=0.10.0",
+    "ipykernel<7.0.0,>=6.29.4",
+]
 
 
 [tool.maturin]
 module-name = "koenigsberg._internal"
 python-source = "python"
 features = ["pyo3/extension-module"]
-
-[tool.poetry]
-name = "koenigsberg"
-version = "0"
-description = ""
-authors = ["Daniel Mesejo <mesejo@letsql.com>"]
-packages = [
-	{ include = "koenigsberg", from = "python" },
-]
-
-[tool.poetry.dependencies]
-python = "^3.10"
-maturin = "^1.4.0"
-ibis-framework = "9.5.0"
-dask = "^2023.12.1 || ^2024.0.0"
-attrs = "^23.2.0 || ^24.0.0"
-connectorx = ">=0.3.2,<1"
-psycopg2-binary = "^2.9.9"
-sqlalchemy = "^2.0.25"
-pyarrow = ">=13.0.0,<18"
-duckdb = {version = "^0.10.3 || ^1.0.0", optional = true}
-snowflake-connector-python = {version = "^3.10.1", optional = true}
-datafusion = {version = "^34.0.0 || ^41.0.0", optional = true}
-palmerpenguins = "^0.1.4"
-structlog = "^24.2.0"
-pytest-mock = "^3.14.0"
-narwhals = "1.10.0"
-
-[tool.poetry.group.dev.dependencies]
-black = "24.8.0"
-blackdoc = "0.3.9"
-codespell = {version = "2.3.0", extras = ["hard-encoding-detection", "toml"]}
-coverage = {version = "7.6.1", extras = ["toml"]}
-git-cliff = "^2.2.1"
-ipython = "^8.19.0"
-pre-commit = "3.8.0"
-pytest = "8.3.3"
-pytest-cov = "5.0.0"
-ruff = "0.7.2"
-
-[tool.poetry.group.test.dependencies]
-scikit-learn = "^1.4.0"
-xgboost = ">=1.6.1"
-
-[tool.poetry.group.docs.dependencies]
-quartodoc = "^0.7.2"
-nbformat = "^5.10.4"
-nbclient = "^0.10.0"
-ipykernel = "^6.29.4"
-
-[tool.poetry.extras]
-datafusion = ["datafusion"]
-duckdb = ["duckdb"]
-snowflake = ["snowflake-connector-python"]
-
 
 [tool.codespell]
 skip = "*.lock,.direnv,.git,docs/_freeze/**/html.json"

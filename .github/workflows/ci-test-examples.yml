@@ -35,15 +35,31 @@ jobs:
         with:
           python-version: 3.x
 
+      - name: Rust latest
+        run: rustup update
+
+      # check how to use virtual environment https://stackoverflow.com/q/74668349/4001592
       - name: Create virtual environment
         run: python -m venv .venv
 
-      - name: Install pytest
-        run: .venv/bin/python -m pip install pytest maturin
+      - name: install dependencies
+        run: |
+          source .venv/bin/activate
+          python -m pip install pytest maturin
 
-      - name: Check install
-        run: .venv/bin/python -m maturin develop
+      - name: develop
+        run: |
+          source .venv/bin/activate
+          python -m maturin develop
 
-      - name: poetry pytest
-        run: .venv/bin/python -m pytest --import-mode=importlib python/koenigsberg/tests/test_examples.py -v
+      - name: pytest
+        run: |
+          source .venv/bin/activate
+          python -m pytest --import-mode=importlib python/koenigsberg/tests/test_examples.py -v
         working-directory: ${{ github.workspace }}
+        env:
+          POSTGRES_PASSWORD: postgres
+          POSTGRES_USER: postgres
+          POSTGRES_HOST: localhost
+          POSTGRES_PORT: 5432
+          POSTGRES_DATABASE: ibis_testing
