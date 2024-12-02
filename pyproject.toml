@@ -30,7 +30,7 @@ dependencies = [
 [project.optional-dependencies]
 duckdb = ["duckdb<2.0.0,>=0.10.3"]
 snowflake = ["snowflake-connector-python<4.0.0,>=3.10.1"]
-datafusion = ["datafusion<42.0.0,>=34.0.0"]
+datafusion = ["datafusion<42.0.1,>=34.0.0"]
 
 [dependency-groups]
 dev = [
