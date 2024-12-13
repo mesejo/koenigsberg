@@ -38,17 +38,6 @@ jobs:
       - name: Rust latest
         run: rustup update
 
-      - name: cargo cache
-        uses: actions/cache@v3
-        with:
-          path: |
-            ~/.cargo/bin/
-            ~/.cargo/registry/index/
-            ~/.cargo/registry/cache/
-            ~/.cargo/git/db/
-            ./target/
-          key: cargo-cache-${{ matrix.python-version }}-${{ matrix.target }}-${{ hashFiles('**/Cargo.toml', '**/Cargo.lock') }}
-
       - name: Install uv
         uses: astral-sh/setup-uv@v3
         with:
