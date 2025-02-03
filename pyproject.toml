@@ -64,6 +64,9 @@ docs = [
 module-name = "koenigsberg._internal"
 python-source = "python"
 features = ["pyo3/extension-module"]
+include = [
+  { path = "wheels/*", format = ["sdist", "wheel"] },
+]
 
 [tool.codespell]
 skip = "*.lock,.direnv,.git,docs/_freeze/**/html.json"
