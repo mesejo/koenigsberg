@@ -13,3 +13,7 @@ def test_nw():
 def test_foo():
     """Just another dummy test"""
     assert True
+
+def test_changes():
+    import math
+    assert math.pi is not None
