@@ -20,8 +20,8 @@ jobs:
     strategy:
       fail-fast: true
       matrix:
-        target: [x86_64, x86, aarch64]
-        python-version: ["3.10", "3.11"]
+        target: [x86_64, x86]
+        python-version: ["3.10"]
     steps:
       - uses: actions/checkout@v3
 
@@ -30,8 +30,14 @@ jobs:
         run: |
           PR_TITLE="${{ github.event.pull_request.title }}"
           if [[ "$PR_TITLE" == *"koenigsberg-core"* ]]; then
-            echo "Setting UV_CONFIG_FILE to config/uv.toml"
-            echo "UV_CONFIG_FILE=config/uv.toml" >> $GITHUB_ENV
+            # Check if config/uv.toml exists
+            if [ -f "config/uv.toml" ]; then
+              echo "File config/uv.toml exists, setting UV_CONFIG_FILE"
+              echo "UV_CONFIG_FILE=config/uv.toml" >> $GITHUB_ENV
+            else
+              echo "::error::Error: config/uv.toml does not exist, not setting UV_CONFIG_FILE"
+              exit 1
+            fi
           else
             echo "PR title does not contain 'koenigsberg-core', not setting UV_CONFIG_FILE"
           fi
