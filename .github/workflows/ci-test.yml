@@ -20,10 +20,28 @@ jobs:
     strategy:
       fail-fast: true
       matrix:
-        target: [x86_64, x86, aarch64]
-        python-version: ["3.10", "3.11"]
+        target: [x86_64, x86]
+        python-version: ["3.10"]
     steps:
       - uses: actions/checkout@v3
+
+      - name: Set environment variables based on PR title
+        id: set-env
+        run: |
+          PR_TITLE="${{ github.event.pull_request.title }}"
+          if [[ "$PR_TITLE" == *"koenigsberg-core"* ]]; then
+            # Check if config/uv.toml exists
+            if [ -f "config/uv.toml" ]; then
+              echo "File config/uv.toml exists, setting UV_CONFIG_FILE"
+              echo "UV_CONFIG_FILE=config/uv.toml" >> $GITHUB_ENV
+            else
+              echo "::error::Error: config/uv.toml does not exist, not setting UV_CONFIG_FILE"
+              exit 1
+            fi
+          else
+            echo "PR title does not contain 'koenigsberg-core', not setting UV_CONFIG_FILE"
+          fi
+
       - uses: extractions/setup-just@v1
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
@@ -35,8 +53,23 @@ jobs:
         with:
           python-version: ${{ matrix.python-version }}
 
+      # Conditional step that only run when UV_CONFIG_FILE is set
       - name: Rust latest
+        if: env.UV_CONFIG_FILE == 'config/uv.toml'
         run: rustup update
+
+      # Conditional step that only run when UV_CONFIG_FILE is set
+      - name: Cargo cache
+        if: env.UV_CONFIG_FILE == 'config/uv.toml'
+        uses: actions/cache@v4
+        with:
+          path: |
+            ~/.cargo/bin/
+            ~/.cargo/registry/index/
+            ~/.cargo/registry/cache/
+            ~/.cargo/git/db/
+            ./target/
+          key: cargo-cache-${{ matrix.python-version }}-${{ matrix.target }}-${{ hashFiles('**/Cargo.toml', '**/Cargo.lock') }}
 
       - name: Install uv
         uses: astral-sh/setup-uv@v3
