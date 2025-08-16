@@ -1,4 +1,4 @@
-name: Conventional commits check
+name: ci-lint-commit-message
 
 on:
   # runs on `pull_request_target` events so that commenting on the PR is allowed
@@ -7,7 +7,6 @@ on:
 
 jobs:
   commitlint:
-    name: Check PR title conforms to semantic-release
     runs-on: ubuntu-latest
     permissions:
       issues: write
