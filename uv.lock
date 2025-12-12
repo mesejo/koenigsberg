@@ -1,5 +1,5 @@
 version = 1
-revision = 2
+revision = 3
 requires-python = ">=3.10"
 resolution-markers = [
     "python_full_version >= '3.12'",
@@ -446,7 +446,7 @@ wheels = [
 
 [[package]]
 name = "dask"
-version = "2024.10.0"
+version = "2025.12.0"
 source = { registry = "https://pypi.org/simple" }
 dependencies = [
     { name = "click" },
@@ -458,9 +458,9 @@ dependencies = [
     { name = "pyyaml" },
     { name = "toolz" },
 ]
-sdist = { url = "https://files.pythonhosted.org/packages/eb/38/10d4e3c5625b118c5a3b3066bb8bd473cc211434a4486c0ea5d93bc575be/dask-2024.10.0.tar.gz", hash = "sha256:dfd3efec5d8d8340fb647d0347637133030cad261b714623cc27de286e9db037", size = 10154629, upload-time = "2024-10-17T09:13:42.277Z" }
+sdist = { url = "https://files.pythonhosted.org/packages/49/ae/92fca08ff8fe3e8413842564dd55ee30c9cd9e07629e1bf4d347b005a5bf/dask-2025.12.0.tar.gz", hash = "sha256:8d478f2aabd025e2453cf733ad64559de90cf328c20209e4574e9543707c3e1b", size = 10995316, upload-time = "2025-12-12T14:59:10.885Z" }
 wheels = [
-    { url = "https://files.pythonhosted.org/packages/85/ec/0fa1997dd7070a336063663a1305e6967b7c906bd7907f2435c5ad049b0e/dask-2024.10.0-py3-none-any.whl", hash = "sha256:1ddc27c7967e134b4f8296a488521485a5ac4927cc63e2abfa0b24227b93217f", size = 1259489, upload-time = "2024-10-17T09:13:37.954Z" },
+    { url = "https://files.pythonhosted.org/packages/6f/3a/2121294941227c548d4b5f897a8a1b5f4c44a58f5437f239e6b86511d78e/dask-2025.12.0-py3-none-any.whl", hash = "sha256:4213ce9c5d51d6d89337cff69de35d902aa0bf6abdb8a25c942a4d0281f3a598", size = 1481293, upload-time = "2025-12-12T14:58:59.32Z" },
 ]
 
 [[package]]
@@ -882,18 +882,18 @@ wheels = [
 name = "koenigsberg"
 source = { editable = "." }
 dependencies = [
-    { name = "attrs", marker = "python_full_version < '4.0'" },
-    { name = "connectorx", marker = "python_full_version < '4.0'" },
-    { name = "dask", marker = "python_full_version < '4.0'" },
+    { name = "attrs", marker = "python_full_version < '4'" },
+    { name = "connectorx", marker = "python_full_version < '4'" },
+    { name = "dask", marker = "python_full_version < '4'" },
     { name = "ibis-framework" },
-    { name = "narwhals", marker = "python_full_version < '4.0'" },
-    { name = "palmerpenguins", marker = "python_full_version < '4.0'" },
-    { name = "psycopg2-binary", marker = "python_full_version < '4.0'" },
-    { name = "pyarrow", marker = "python_full_version < '4.0'" },
-    { name = "pytest", marker = "python_full_version < '4.0'" },
-    { name = "pytest-mock", marker = "python_full_version < '4.0'" },
-    { name = "sqlalchemy", marker = "python_full_version < '4.0'" },
-    { name = "structlog", marker = "python_full_version < '4.0'" },
+    { name = "narwhals", marker = "python_full_version < '4'" },
+    { name = "palmerpenguins", marker = "python_full_version < '4'" },
+    { name = "psycopg2-binary", marker = "python_full_version < '4'" },
+    { name = "pyarrow", marker = "python_full_version < '4'" },
+    { name = "pytest", marker = "python_full_version < '4'" },
+    { name = "pytest-mock", marker = "python_full_version < '4'" },
+    { name = "sqlalchemy", marker = "python_full_version < '4'" },
+    { name = "structlog", marker = "python_full_version < '4'" },
 ]
 
 [package.optional-dependencies]
@@ -935,21 +935,21 @@ test = [
 
 [package.metadata]
 requires-dist = [
-    { name = "attrs", marker = "python_full_version >= '3.10' and python_full_version < '4.0'", specifier = "==24.3.0" },
-    { name = "connectorx", marker = "python_full_version >= '3.10' and python_full_version < '4.0'", specifier = ">=0.3.2,<1" },
-    { name = "dask", marker = "python_full_version >= '3.10' and python_full_version < '4.0'", specifier = "==2024.10.0" },
+    { name = "attrs", marker = "python_full_version >= '3.10' and python_full_version < '4'", specifier = "==24.3.0" },
+    { name = "connectorx", marker = "python_full_version >= '3.10' and python_full_version < '4'", specifier = ">=0.3.2,<1" },
+    { name = "dask", marker = "python_full_version >= '3.10' and python_full_version < '4'", specifier = "==2025.12.0" },
     { name = "datafusion", marker = "extra == 'datafusion'", specifier = ">=34.0.0,<42.0.0" },
     { name = "duckdb", marker = "extra == 'duckdb'", specifier = ">=0.10.3,<2.0.0" },
     { name = "ibis-framework" },
-    { name = "narwhals", marker = "python_full_version >= '3.10' and python_full_version < '4.0'", specifier = "==1.21.0" },
-    { name = "palmerpenguins", marker = "python_full_version >= '3.10' and python_full_version < '4.0'", specifier = "==0.1.4" },
-    { name = "psycopg2-binary", marker = "python_full_version >= '3.10' and python_full_version < '4.0'", specifier = "==2.9.9" },
-    { name = "pyarrow", marker = "python_full_version >= '3.10' and python_full_version < '4.0'", specifier = ">=13.0.0,<18" },
-    { name = "pytest", marker = "python_full_version >= '3.10' and python_full_version < '4.0'", specifier = "==8.4.0" },
-    { name = "pytest-mock", marker = "python_full_version >= '3.10' and python_full_version < '4.0'", specifier = "==3.14.0" },
+    { name = "narwhals", marker = "python_full_version >= '3.10' and python_full_version < '4'", specifier = "==1.21.0" },
+    { name = "palmerpenguins", marker = "python_full_version >= '3.10' and python_full_version < '4'", specifier = "==0.1.4" },
+    { name = "psycopg2-binary", marker = "python_full_version >= '3.10' and python_full_version < '4'", specifier = "==2.9.9" },
+    { name = "pyarrow", marker = "python_full_version >= '3.10' and python_full_version < '4'", specifier = ">=13.0.0,<18" },
+    { name = "pytest", marker = "python_full_version >= '3.10' and python_full_version < '4'", specifier = "==8.4.0" },
+    { name = "pytest-mock", marker = "python_full_version >= '3.10' and python_full_version < '4'", specifier = "==3.14.0" },
     { name = "snowflake-connector-python", marker = "extra == 'snowflake'", specifier = ">=3.10.1,<4.0.0" },
-    { name = "sqlalchemy", marker = "python_full_version >= '3.10' and python_full_version < '4.0'", specifier = "==2.0.35" },
-    { name = "structlog", marker = "python_full_version >= '3.10' and python_full_version < '4.0'", specifier = "==24.4.0" },
+    { name = "sqlalchemy", marker = "python_full_version >= '3.10' and python_full_version < '4'", specifier = "==2.0.35" },
+    { name = "structlog", marker = "python_full_version >= '3.10' and python_full_version < '4'", specifier = "==24.4.0" },
 ]
 provides-extras = ["duckdb", "snowflake", "datafusion"]
 
